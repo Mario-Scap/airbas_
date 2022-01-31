@@ -20,6 +20,7 @@ public class UserBas {
 
     private String email;
     private String password;
+    private Boolean enabled;
 
     @Enumerated(EnumType.STRING)
     private AuthProvider provider;

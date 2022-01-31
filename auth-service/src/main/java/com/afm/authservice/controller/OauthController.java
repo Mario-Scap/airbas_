@@ -67,7 +67,7 @@ public class OauthController {
 
         if(!authenticationService.exisitUser(payload.getEmail())){
             LoginRequest credentials = new LoginRequest(payload.getEmail(), pswExtUser);
-            authenticationService.createUser(credentials, AuthProvider.google, ERole.ROLE_USER);
+            authenticationService.createUser(credentials, AuthProvider.google, ERole.USER);
         }
 
         logger.info("Login with google for " + payload.getEmail());
@@ -82,7 +82,7 @@ public class OauthController {
 
         if(!authenticationService.exisitUser(user.getEmail())){
             LoginRequest credentials = new LoginRequest(user.getEmail(), pswExtUser);
-            authenticationService.createUser(credentials, AuthProvider.facebook, ERole.ROLE_USER);
+            authenticationService.createUser(credentials, AuthProvider.facebook, ERole.USER);
         }
         logger.info("Login with facebook for " + user.getEmail());
         return authenticationService.findUser(user.getEmail());
@@ -104,7 +104,7 @@ public class OauthController {
 
         if(!authenticationService.exisitUser(detailUser.get("email"))){
             LoginRequest credentials = new LoginRequest(detailUser.get("email"), pswExtUser);
-            authenticationService.createUser(credentials, AuthProvider.amazon, ERole.ROLE_USER);
+            authenticationService.createUser(credentials, AuthProvider.amazon, ERole.USER);
         }
         logger.info("Login with Amazon for " + detailUser.get("email"));
         return authenticationService.findUser(detailUser.get("email"));
